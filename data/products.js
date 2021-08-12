@@ -270,11 +270,11 @@ const productsSampleExamples =
 console.log(productsSampleExamples[0].name)
 
 const data = productsSampleExamples
-console.log(data)
+// console.log(data)
 let htmlToDisplayAllProducts = ''
 
 const generatePublicProducts = function () {
-  console.log(data)
+  // console.log(data)
   // console.log(data[0])
   for (let i = 0; i < data.length; i++) {
     htmlToDisplayAllProducts +=
@@ -302,7 +302,7 @@ const generatePublicProducts = function () {
       </div>
     `
   }
-  console.log(htmlToDisplayAllProducts)
+  // console.log(htmlToDisplayAllProducts)
   return htmlToDisplayAllProducts
 }
 
