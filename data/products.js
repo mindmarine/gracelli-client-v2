@@ -267,7 +267,7 @@ const productsSampleExamples =
   }
 ]
 
-console.log(productsSampleExamples[0].name)
+// console.log(productsSampleExamples[0].name)
 
 const data = productsSampleExamples
 // console.log(data)

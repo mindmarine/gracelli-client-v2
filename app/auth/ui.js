@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('./../store')
-console.log(store)
+// console.log(store)
 
 const debugUi = false
 const debugAuth = false
@@ -21,7 +21,7 @@ const onSignUpSuccess = function (response) {
 }
 
 const onSignUpFailure = function () {
-  console.log('Not possible')
+  // console.log('Not possible')
   $('#status').text('Sign up failure')
   $('sign-up').trigger('reset')
 }
@@ -29,7 +29,7 @@ const onSignUpFailure = function () {
 const onSignInSuccess = function (response) {
   // console.log('Super')
   $('#status').text('Thank you for signing in', response.user.email)
-  console.log(response)
+  // console.log(response)
   // very important store the user token
   store.token = response.user.token
   // add user id to the store
@@ -46,7 +46,7 @@ const onSignInSuccess = function (response) {
 }
 
 const onSignInFailure = function () {
-  console.log('Not possible')
+  // console.log('Not possible')
   $('#status').text('Sign in failure')
   $('sign-in').trigger('reset')
 }
@@ -64,7 +64,7 @@ const onSignOutSuccess = function () {
   $('#all-products-showcase-for-owner').hide()
   $('#create-product').hide()
   $('#one-product-showcase').hide()
-  $('#one-product-showcase').hide()
+  $('#show-one-product').hide()
   $('#product-update-div').hide()
   $('#menu').hide()
 }
@@ -92,7 +92,7 @@ const createNewProductSuccess = function (response) {
 }
 
 const createNewProductFailure = function () {
-  console.log('Creating a new product is not possible')
+  // console.log('Creating a new product is not possible')
   $('#status').text('Product creation failure')
 }
 // Show all products
@@ -179,6 +179,7 @@ const onShowAllProductsFailure = function () {
 // Show one product - one and only :)
 const showOneProductSuccess = function (data) {
   $('#status').text('You have shown one product successfully')
+  $('#one-product').trigger('reset')
   if (debugUi && debugProduct) {
     // Data for all products
     console.log(typeof data)
@@ -225,7 +226,7 @@ const showOneProductSuccess = function (data) {
         </div>
       </div>
     `
-  console.log(htmlToDisplayOneProduct)
+  // console.log(htmlToDisplayOneProduct)
   // hide and seek
   $('#all-products-showcase-for-owner').hide()
   $('#create-product').hide()
@@ -329,7 +330,7 @@ const onUpdateFeaturedProductSuccess = function (data) {
   </div>
 
   `
-  console.log(htmlToUpdateOneProduct)
+  // console.log(htmlToUpdateOneProduct)
   // hide and seek
   $('#all-products-showcase-for-owner').hide()
   $('#create-product').hide()
@@ -349,6 +350,8 @@ const onUpdateFeaturedProductFailure = function () {
 
 const onUpdateProductSuccess = function (data) {
   $('#status').text('You have updated one product successfully')
+  $('#product-update-div').hide()
+  $('#update-product-form').trigger('reset')
   // console.log('product was updated successfully', data)
   // store.currentProductId = data.product._id
 }
@@ -359,6 +362,7 @@ const onUpdateProductFailure = function () {
 
 const onDeleteProductSuccess = function () {
   $('#status').text('You successfully deleted the product. Hope that you will add more products')
+  $('#one-product-showcase').hide()
 }
 
 const onDeleteProductFailure = function () {

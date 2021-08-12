@@ -18,7 +18,7 @@ const signUp = function (data) {
 }
 
 const signIn = function (data) {
-  console.log(data)
+  // console.log(data)
   return $.ajax({
     url: `${appCurrentLink.apiUrl}/sign-in`,
     method: 'POST',
